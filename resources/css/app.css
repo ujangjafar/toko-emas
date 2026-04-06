@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --gold: #D4AF37;
+        --gold-light: #F5E7C8;
+        --gold-dark: #B8960F;
+    }
+
+    /* Mobile-first typography */
+    html {
+        @apply text-base;
+    }
+
+    @screen sm {
+        html {
+            @apply text-base;
+        }
+    }
+
+    @screen lg {
+        html {
+            @apply text-base;
+        }
+    }
+
+    /* Better touch targets for mobile */
+    button, a {
+        @apply cursor-pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Prevent font scaling in landscape */
+    html {
+        -webkit-text-size-adjust: 100%;
+    }
+}
+
+@layer components {
+    .btn-gold {
+        @apply bg-gold text-white px-4 py-2 rounded-lg hover:bg-gold-dark transition text-sm sm:text-base;
+    }
+    
+    .btn-outline-gold {
+        @apply border border-gold text-gold px-4 py-2 rounded-lg hover:bg-gold hover:text-white transition text-sm sm:text-base;
+    }
+    
+    .container-custom {
+        @apply w-full px-4 mx-auto;
+        max-width: 100%;
+    }
+    
+    @screen sm {
+        .container-custom {
+            @apply px-6;
+            max-width: 640px;
+        }
+    }
+    
+    @screen md {
+        .container-custom {
+            max-width: 768px;
+        }
+    }
+    
+    @screen lg {
+        .container-custom {
+            @apply px-8;
+            max-width: 1024px;
+        }
+    }
+    
+    @screen xl {
+        .container-custom {
+            max-width: 1280px;
+        }
+    }
+    
+    /* Card styles */
+    .product-card {
+        @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-all duration-300;
+    }
+    
+    /* Grid responsive helpers */
+    .grid-responsive {
+        @apply grid grid-cols-1 gap-4;
+    }
+    
+    @screen sm {
+        .grid-responsive {
+            @apply grid-cols-2 gap-4;
+        }
+    }
+    
+    @screen lg {
+        .grid-responsive {
+            @apply grid-cols-3 gap-6;
+        }
+    }
+    
+    @screen xl {
+        .grid-responsive {
+            @apply grid-cols-4 gap-6;
+        }
+    }
+}
+
+@layer utilities {
+    /* Line clamp utilities */
+    .line-clamp-1 {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
+    /* Aspect ratios */
+    .aspect-square {
+        aspect-ratio: 1 / 1;
+    }
+    
+    .aspect-video {
+        aspect-ratio: 16 / 9;
+    }
+    
+    /* Hide scrollbar */
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Safe area insets for modern mobile devices */
+    .pt-safe {
+        padding-top: env(safe-area-inset-top);
+    }
+    
+    .pb-safe {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+    
+    /* Touch-friendly spacing */
+    .touch-target {
+        @apply p-2;
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
